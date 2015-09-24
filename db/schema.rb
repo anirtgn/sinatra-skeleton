@@ -11,33 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
-
-  create_table "dinosaurs", force: :cascade do |t|
-    t.string   "name"
-    t.string   "size"
-    t.string   "diet"
-    t.string   "era"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "gadgets", force: :cascade do |t|
-    t.string   "name"
-    t.string   "gadget_type"
-    t.string   "colour"
-    t.string   "os"
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 2) do
 
   create_table "movies", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "year"
-    t.integer  "rating"
+    t.string   "movie_title"
+    t.integer  "movie_year"
+    t.integer  "movie_summary"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "username"
+    t.string   "movie_title"
+    t.string   "movie_rating"
+    t.string   "review_title"
+    t.string   "review_comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "movie_id"
   end
 
   create_table "users", force: :cascade do |t|
